@@ -1,0 +1,76 @@
+{
+  "questions": [
+    {
+      "title": "From",
+      "placeholder": "Arrival city",
+      "id": "arrival-place",
+      "step": 1
+    },
+    {
+      "title": "To",
+      "placeholder": "Departure city",
+      "id": "departure-place",
+      "step": 1
+    },
+    {
+      "title": "How many people",
+      "placeholder": "Travelers quantity",
+      "id": "travelers-quantity",
+      "step": 1
+    },
+    {
+      "title": "There and back",
+      "placeholder": "Select please",
+      "id": "there-and-back",
+      "step": 1
+    },
+    {
+      "title": "When to go",
+      "placeholder": "Choose please",
+      "id": "start-date",
+      "step": 1
+    },
+    {
+      "title": "Return date",
+      "placeholder": "Choose please",
+      "id": "end-date",
+      "step": 1
+    },
+    {
+      "title": "Expenses value",
+      "placeholder": "Approximate budget",
+      "id": "approximate-budget",
+      "step": 2
+    },
+    {
+      "title": "Do you need the Road Book",
+      "placeholder": "Yes/no",
+      "id": "road-book",
+      "step": 2
+    },
+    {
+      "title": "Approximate arrival time",
+      "placeholder": "Arrival time",
+      "id": "arrival-time",
+      "step": 3
+    },
+    {
+      "title": "Approximate returning time",
+      "placeholder": "Returning time",
+      "id": "returning-time",
+      "step": 3
+    },
+    {
+      "title": "Maximum number of transfers",
+      "placeholder": "Number of transfers",
+      "id": "transfers",
+      "step": 3
+    },
+    {
+      "title": "Maximum flight time",
+      "placeholder": "Flight time",
+      "id": "max-flight-time",
+      "step": 3
+    }
+  ]
+}
