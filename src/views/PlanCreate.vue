@@ -22,17 +22,29 @@
 <script>
 import Datepicker from "vuejs-datepicker"
 import Question from "@/components/Question.vue"
+import axios from "axios"
 
 export default {
   components: {
     Datepicker,
     Question
   },
+  created() {
+    axios
+      .get('http://localhost:3000/questions')
+      .then(response => {
+        this.questions = response.data
+      })
+      .catch(error => {
+        console.log('There was an error:', error.response)
+      })
+  },
   data() {
     return {
       options: [ '1', '2', '3', '4', '5', '6+' ],
       step: 1,
-      maxStep: 3
+      maxStep: 2,
+      questions: []
     }
   },
   methods: {

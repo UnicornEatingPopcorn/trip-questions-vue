@@ -52,25 +52,25 @@
       "title": "Approximate arrival time",
       "placeholder": "Arrival time",
       "id": "arrival-time",
-      "step": 3
+      "step": 2
     },
     {
       "title": "Approximate returning time",
       "placeholder": "Returning time",
       "id": "returning-time",
-      "step": 3
+      "step": 2
     },
     {
-      "title": "Maximum number of transfers",
+      "title": "Max number of transfers",
       "placeholder": "Number of transfers",
       "id": "transfers",
-      "step": 3
+      "step": 2
     },
     {
       "title": "Maximum flight time",
       "placeholder": "Flight time",
       "id": "max-flight-time",
-      "step": 3
+      "step": 2
     }
   ]
 }
