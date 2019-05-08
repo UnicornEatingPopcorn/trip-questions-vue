@@ -11,12 +11,14 @@
            .line
        .row
          Question(v-for="question in questions" :key="question.id" :question="question" :step="step")
-       .row.form-group
-         .col-12
-           .col-6
-             button.btn.btn-success.left-button(type="button" v-if="step != 1" @click.prevent="step -= 1") Prev
-           .col-6
-             button.btn.btn-success.right-button(@click.prevent="step += 1" v-if="step < maxStep") Next
+         .col-6
+           button.btn.btn-success.left-button(type="button" v-if="step != 1" @click.prevent="step -= 1") Prev
+           button.btn.btn-success.right-button(type="button" @click.prevent="step += 1" v-if="step < maxStep") Next
+         .col-6
+           button.btn.btn-success.right-button(type="button" @click.prevent="step += 1" v-if="step > maxStep") Submit
+
+
+
 
 </template>
 
@@ -95,7 +97,6 @@ export default {
   margin-top: 40px
 
 .left-button
-  margin-right: 40px
   margin-top: 20px
   width: 220px
 
