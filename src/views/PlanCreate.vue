@@ -12,11 +12,8 @@
        .row
          Question(v-for="question in questions" :key="question.id" :question="question" :step="step")
          .col-6
-           button.btn.btn-success.left-button(type="button" v-if="step != 1" @click.prevent="step -= 1") Prev
-           button.btn.btn-success.right-button(type="button" @click.prevent="step += 1" v-if="step < maxStep") Next
-         .col-6
-           button.btn.btn-success.right-button(type="button" @click.prevent="step += 1" v-if="step > maxStep") Submit
-
+           button.btn.btn-plan(type="button" v-if="step == 2" @click.prevent="step -= 1") Prev
+           button.btn.btn-plan(type="button" v-if="step == 1" @click.prevent="step += 1") Next
 
 
 
@@ -91,26 +88,22 @@ export default {
   margin-bottom: 24px
 
 .question-plan
-  background-color: #721c24d6
+  background-color: #82CFFD
   border-radius: 1%
   padding: 20px
-  margin-top: 40px
+  margin-top: 83px
 
-.left-button
-  margin-top: 20px
-  width: 220px
-
-.right-button
+.btn-plan
+  background-color: #2aabf7 !important
   margin-top: 20px
   width: 220px
 
 .form-text
-  color: white
+  color: #000000e3
 
 .line
-  width: 300px;
-  height: 2px;
-  background: #dc3545
+  width: 400px
+  height: 3px
+  background: #0F1886
   margin: 0 auto
-
 </style>

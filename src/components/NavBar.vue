@@ -14,13 +14,13 @@ export default {
   justify-content: space-between
   align-items: center
   height: 60px
-  background-color: #721c24d6
+  background-color: #82CFFD
 
 .nav-brand
   font-family: 'Montserrat', sans-serif
   font-weight: 700
   font-size: 1.5em
-  color: white
+  color: #000000e3
   text-decoration: none
   margin-left: 40px
 </style>

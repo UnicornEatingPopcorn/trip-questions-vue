@@ -33,7 +33,7 @@ body {
   box-sizing: border-box;
   width: 100%;
   height: 100vh;
-  background-image: url(./assets/bg-questions.jpg);
+  background-color: #000000e3;
 }
 hr {
   box-sizing: content-box;
