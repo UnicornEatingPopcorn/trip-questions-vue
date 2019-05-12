@@ -5,8 +5,7 @@ import router from "./router"
 import store from "./store/store"
 import upperFirst from "lodash/upperFirst"
 import camelCase from "lodash/camelCase"
-import "bootstrap/dist/css/bootstrap.css"
-import "bootstrap-vue/dist/bootstrap-vue.css"
+import "@/assets/bootstrap-variables.sass"
 
 Vue.use(BootstrapVue)
 

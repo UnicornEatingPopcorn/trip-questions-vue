@@ -4,7 +4,8 @@
       "title": "From",
       "placeholder": "Arrival city",
       "id": "arrival-place",
-      "step": 1
+      "step": 1,
+      input_type: 
     },
     {
       "title": "To",
@@ -71,6 +72,12 @@
       "placeholder": "Flight time",
       "id": "max-flight-time",
       "step": 2
+    }
+  ],
+  plans: [
+    {
+      id: 1,
+      answers: [{ question_id: 1, value: 55 }]
     }
   ]
 }

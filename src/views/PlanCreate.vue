@@ -1,19 +1,22 @@
 <template lang="pug">
 .container
   .row.justify-content-center.mt-5
-    .col-9.text-center
+    .col-9
       form#mainQuestions.position-relative.question-plan
        .row.form-group
-         .col-12
+         .col-12.text-center
            h5.font-alt.form-text
              |  Let's start with few simple questions
            //- img.fluid-grow(src="@/assets/smile.png" height="100px", width="100px")
            .line
-       .row
+       .row.mb-3
          Question(v-for="question in questions" :key="question.id" :question="question" :step="step")
-         .col-6
-           button.btn.btn-plan(type="button" v-if="step == 2" @click.prevent="step -= 1") Prev
-           button.btn.btn-plan(type="button" v-if="step == 1" @click.prevent="step += 1") Next
+       .row
+         .col
+           button.btn.btn-info.btn-block(v-if="step === 1" @click.prevent="step += 1") Next
+           button.btn.btn-info.btn-block(v-if="step === 2" @click.prevent="step -= 1") Prev
+         .col
+           button.btn.btn-primary.btn-block(v-if="step === 2" @click.prevent="") Submit
 
 
 
@@ -22,7 +25,7 @@
 <script>
 import Datepicker from "vuejs-datepicker"
 import Question from "@/components/Question.vue"
-import axios from "axios"
+import QuestionService from "@/services/QuestionService.js"
 
 export default {
   components: {
@@ -30,8 +33,7 @@ export default {
     Question
   },
   created() {
-    axios
-      .get('http://localhost:3000/questions')
+    QuestionService.getQuestions()
       .then(response => {
         this.questions = response.data
       })
