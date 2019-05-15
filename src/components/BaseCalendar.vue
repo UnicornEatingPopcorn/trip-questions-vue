@@ -1,7 +1,7 @@
 <template lang="pug">
 .col-6(v-if="question.step == step")
-  BaseSelect(v-if="question.component === 'BaseSelect'" :label="question.title" :options="question.select_options")
-  BaseCalendar(v-else)
+  label.form-text {{ question.title }}
+  input.form-control.mb-3(:placeholder="question.placeholder" :id="question.id")
 </template>
 
 <script>

@@ -16,7 +16,7 @@ export default new Router({
       component: PlanCreate
     },
     {
-      path: "/plan-list",
+      path: "/plans",
       name: "plan-list",
       component: PlanList
     },

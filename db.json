@@ -1,83 +1,156 @@
 {
   "questions": [
     {
+      "id": 1,
       "title": "From",
       "placeholder": "Arrival city",
-      "id": "arrival-place",
+      "slug": "arrival-place",
       "step": 1,
-      input_type: 
+      "component": "BaseSelect",
+      "select_options": [
+        { "name": "Moscow", "id": 1 },
+        { "name": "Paris", "id": 2 },
+        { "name": "New-York", "id": 3 }
+      ]
     },
     {
       "title": "To",
       "placeholder": "Departure city",
       "id": "departure-place",
-      "step": 1
+      "step": 1,
+      "component": "BaseSelect",
+      "select_options": [
+        { "name": "Moscow", "id": 1 },
+        { "name": "Paris", "id": 2 },
+        { "name": "New-York", "id": 3 }
+      ]
     },
     {
       "title": "How many people",
       "placeholder": "Travelers quantity",
       "id": "travelers-quantity",
-      "step": 1
+      "step": 1,
+      "component": "BaseSelect",
+      "select_options": [
+        { "name": "Moscow", "id": 1 },
+        { "name": "Paris", "id": 2 },
+        { "name": "New-York", "id": 3 }
+      ]
     },
     {
       "title": "There and back",
       "placeholder": "Select please",
       "id": "there-and-back",
-      "step": 1
+      "step": 1,
+      "component": "BaseSelect",
+      "select_options": [
+        { "name": "Moscow", "id": 1 },
+        { "name": "Paris", "id": 2 },
+        { "name": "New-York", "id": 3 }
+      ]
     },
     {
       "title": "When to go",
       "placeholder": "Choose please",
       "id": "start-date",
-      "step": 1
+      "step": 1,
+      "component": "BaseCalendar"
     },
     {
       "title": "Return date",
       "placeholder": "Choose please",
       "id": "end-date",
-      "step": 1
+      "step": 1,
+      "component": "BaseCalendar"
     },
     {
       "title": "Expenses value",
       "placeholder": "Approximate budget",
       "id": "approximate-budget",
-      "step": 2
+      "step": 2,
+      "component": "BaseSelect",
+      "select_options": [
+        { "name": "Moscow", "id": 1 },
+        { "name": "Paris", "id": 2 },
+        { "name": "New-York", "id": 3 }
+      ]
     },
     {
       "title": "Do you need the Road Book",
       "placeholder": "Yes/no",
       "id": "road-book",
-      "step": 2
+      "step": 2,
+      "component": "BaseSelect",
+      "select_options": [
+        { "name": "Moscow", "id": 1 },
+        { "name": "Paris", "id": 2 },
+        { "name": "New-York", "id": 3 }
+      ]
     },
     {
       "title": "Approximate arrival time",
       "placeholder": "Arrival time",
       "id": "arrival-time",
-      "step": 2
+      "step": 2,
+      "component": "BaseSelect",
+      "select_options": [
+        { "name": "Moscow", "id": 1 },
+        { "name": "Paris", "id": 2 },
+        { "name": "New-York", "id": 3 }
+      ]
     },
     {
       "title": "Approximate returning time",
       "placeholder": "Returning time",
       "id": "returning-time",
-      "step": 2
+      "step": 2,
+      "component": "BaseSelect",
+      "select_options": [
+        { "name": "Moscow", "id": 1 },
+        { "name": "Paris", "id": 2 },
+        { "name": "New-York", "id": 3 }
+      ]
     },
     {
       "title": "Max number of transfers",
       "placeholder": "Number of transfers",
       "id": "transfers",
-      "step": 2
+      "step": 2,
+      "component": "BaseSelect",
+      "select_options": [
+        { "name": "Moscow", "id": 1 },
+        { "name": "Paris", "id": 2 },
+        { "name": "New-York", "id": 3 }
+      ]
     },
     {
       "title": "Maximum flight time",
       "placeholder": "Flight time",
       "id": "max-flight-time",
-      "step": 2
+      "step": 2,
+      "component": "BaseSelect",
+      "select_options": [
+        { "name": "Moscow", "id": 1 },
+        { "name": "Paris", "id": 2 },
+        { "name": "New-York", "id": 3 }
+      ]
     }
   ],
-  plans: [
+  "plans": [
     {
-      id: 1,
-      answers: [{ question_id: 1, value: 55 }]
+      "id": 1,
+      "answers": [
+        { "question_id": 1, "value": "Moscow" },
+        { "question_id": 2, "value": 555 }
+      ]
+    },
+    {
+      "id": 2,
+      "answers": []
+    },
+    {
+      "id": 3,
+      "answers": [{ "question_id": 111, "value": 5555 }]
     }
   ]
 }

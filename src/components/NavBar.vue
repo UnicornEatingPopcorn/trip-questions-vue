@@ -1,6 +1,11 @@
 <template lang="pug">
   #nav.nav
-    router-link.nav-brand(to='/questions') Questions
+    router-link.nav-brand(:to="{ path: '/' }") Questions
+    .col-3.justify-content-left
+      router-link.nav-path(:to="{ name: 'plan-list' }") Plans
+      span.pipe |
+      router-link.nav-path(:to="{ name: 'plan-create' }") Create plan
+
 </template>
 
 <script>
@@ -23,4 +28,11 @@ export default {
   color: #000000e3
   text-decoration: none
   margin-left: 40px
+
+.pipe
+  margin-left: 10px
+  margin-right: 10px
+
+.nav-path
+  color: #000000e3
 </style>

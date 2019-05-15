@@ -16,7 +16,7 @@
            button.btn.btn-info.btn-block(v-if="step === 1" @click.prevent="step += 1") Next
            button.btn.btn-info.btn-block(v-if="step === 2" @click.prevent="step -= 1") Prev
          .col
-           button.btn.btn-primary.btn-block(v-if="step === 2" @click.prevent="") Submit
+           button.btn.btn-primary.btn-block(v-if="step === 2" @submit.prevent="createAnswer") Submit
 
 
 
@@ -25,7 +25,7 @@
 <script>
 import Datepicker from "vuejs-datepicker"
 import Question from "@/components/Question.vue"
-import QuestionService from "@/services/QuestionService.js"
+import ClientService from "@/services/ClientService.js"
 
 export default {
   components: {
@@ -33,7 +33,7 @@ export default {
     Question
   },
   created() {
-    QuestionService.getQuestions()
+    ClientService.getQuestions()
       .then(response => {
         this.questions = response.data
       })
@@ -42,42 +42,29 @@ export default {
       })
   },
   data() {
+    const times = []
+    for (let i = 1; i <= 24; i++) {
+      times.push(i + ":00")
+    }
     return {
-      options: [ '1', '2', '3', '4', '5', '6+' ],
+      times: [],
       step: 1,
-      maxStep: 2,
-      questions: []
+      questions: [],
+      answers: [],
     }
   },
   methods: {
-    createEvent() {
-      this.$store
-        .dispatch('event/createEvent', this.event)
-        .then(() => {
-          this.$router.push({
-            name: 'event-show',
-            params: { id: this.event.id }
-          })
-          this.event = this.createFreshEventObject()
-        })
-        .catch(() => {
-        })
+    createAnswer() {
+      this.$store.dispatch("createAnswer", this.answer)
     },
-    createFreshEventObject() {
-      const user = this.$store.state.user.user
+    createPlan() {
+      const question = this.$store.state.question
       const id = Math.floor(Math.random() * 10000000)
 
       return {
-        id: id,
-        user: user,
-        category: '',
-        organizer: user,
-        title: '',
-        description: '',
-        location: '',
-        date: '',
-        time: '',
-        attendees: []
+        question_id: id,
+        question: question,
+        value: ''
       }
     }
   }

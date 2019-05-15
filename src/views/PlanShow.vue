@@ -1,7 +1,8 @@
-<template>
-  <div>
-      </div>
+<template lang="pug">
+  .col-9.text-center
+    h4 Plan
 </template>
+
 <script>
 export default {
   props: {
@@ -12,6 +13,7 @@ export default {
   }
 }
 </script>
-<style scoped>
+
+<style lang="sass">
 
 </style>

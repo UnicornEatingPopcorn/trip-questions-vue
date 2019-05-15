@@ -13,7 +13,7 @@ export default {
   getQuestions() {
     return apiClient.get("/questions")
   },
-  postQuestions() {
-    return apiClient.post("/plan-list", question)
+  getPlans() {
+    return apiClient.get("/plans")
   }
 }
