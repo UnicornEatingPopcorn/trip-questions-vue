@@ -1,17 +1,20 @@
 <template lang="pug">
-  .col-9.text-center
-    h1 Plan List
-    Plan(v-for="plan in plans" :key="plan.id" :plan="plan" )
-
+.container.purple-content.top-padding
+  .col-8.text-center.col-margin
+    h1.mb-5 Plan List
+    PlanCard.mt-2(v-for="plan in plans" :key="plan.id" :plan="plan")
 </template>
 
 <script>
 import ClientService from "@/services/ClientService.js"
-import Plan from "@/components/Plan.vue"
+import PlanCard from "@/components/PlanCard.vue"
 
 export default {
+  props: {
+    plan: Object
+  },
   components: {
-    Plan
+    PlanCard
   },
   data() {
     return {
@@ -32,4 +35,19 @@ export default {
 
 <style lang="sass">
 
+</style>
+
+<style lang="sass">
+h1
+  color: #BAE5FE
+
+.top-padding
+  padding-top: 70px
+
+.col-margin
+  margin: 0 auto
+
+.purple-content
+  background-color: #8d95fdc4
+  height: 100%
 </style>

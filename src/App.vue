@@ -21,4 +21,6 @@ export default {
   width: 100%
   height: 100vh
   background-color: #000000e3
+  background-image: url('assets/2.png')
+  background-position: center
 </style>

@@ -1,7 +1,8 @@
 <template lang="pug">
-.container
-  .row.justify-content-center.mt-5
+.container.purple-content
+  .row.justify-content-center
     .col-9
+      h1.mb-3.text-center.top-margin Create Plan
       form#mainQuestions.position-relative.question-plan
        .row.form-group
          .col-12.text-center
@@ -42,45 +43,33 @@ export default {
       })
   },
   data() {
-    const times = []
-    for (let i = 1; i <= 24; i++) {
-      times.push(i + ":00")
-    }
     return {
-      times: [],
       step: 1,
       questions: [],
-      answers: [],
     }
   },
-  methods: {
-    createAnswer() {
-      this.$store.dispatch("createAnswer", this.answer)
-    },
-    createPlan() {
-      const question = this.$store.state.question
-      const id = Math.floor(Math.random() * 10000000)
-
-      return {
-        question_id: id,
-        question: question,
-        value: ''
-      }
-    }
-  }
+  methods: {}
 }
 
 </script>
 
 <style lang="sass">
+h1
+  color: #BAE5FE
+
+.btn:hover
+  transform: scale(1.03)
+  box-shadow: 0 3px 12px 0 rgba(0, 0, 0, 0.2), 0 1px 15px 0 rgba(0, 0, 0, 0.19)
+
 .field
   margin-bottom: 24px
 
 .question-plan
-  background-color: #82CFFD
+  background-color: #BAE5FE
   border-radius: 1%
   padding: 20px
-  margin-top: 83px
+  border: solid 2px #C0C5FE
+  margin-top: 50px
 
 .btn-plan
   background-color: #2aabf7 !important
@@ -95,4 +84,12 @@ export default {
   height: 3px
   background: #0F1886
   margin: 0 auto
+
+.top-margin
+  margin-top: 70px
+
+.purple-content
+  height: 100%
+  background-color: #8d95fdc4
+
 </style>
