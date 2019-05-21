@@ -13,7 +13,16 @@ export default {
   getQuestions() {
     return apiClient.get("/questions")
   },
+
   getPlans() {
     return apiClient.get("/plans")
+  },
+
+  getPlan(id) {
+    return apiClient.get("/plans/" + id)
+  },
+
+  postPlan() {
+    return apiClient.post("/plans")
   }
 }

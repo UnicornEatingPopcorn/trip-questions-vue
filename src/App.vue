@@ -23,4 +23,11 @@ export default {
   background-color: #000000e3
   background-image: url('assets/2.png')
   background-position: center
+
+.purple-content
+  background-color: #8d95fdc4
+  height: 100%
+
+h1
+  color: #BAE5FE
 </style>

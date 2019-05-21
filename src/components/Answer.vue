@@ -5,14 +5,8 @@
 </template>
 
 <script>
-import BaseSelect from "@/components/BaseSelect.vue"
-import BaseCalendar from "@/components/BaseCalendar.vue"
 
 export default {
-  components: {
-    BaseSelect,
-    BaseCalendar
-  },
   props: {
     answer: Object
   }

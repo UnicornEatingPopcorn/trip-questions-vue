@@ -21,9 +21,10 @@ export default new Router({
       component: PlanList
     },
     {
-      path: "/plan-show",
+      path: "/plan-show/:id",
       name: "plan-show",
-      component: PlanShow
+      component: PlanShow,
+      props: true
     }
   ]
 })

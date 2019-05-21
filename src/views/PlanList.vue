@@ -34,20 +34,10 @@ export default {
 </script>
 
 <style lang="sass">
-
-</style>
-
-<style lang="sass">
-h1
-  color: #BAE5FE
-
 .top-padding
   padding-top: 70px
 
 .col-margin
   margin: 0 auto
 
-.purple-content
-  background-color: #8d95fdc4
-  height: 100%
 </style>

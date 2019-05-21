@@ -6,18 +6,17 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
-    questions: [],
-    answers: []
+    plans: []
   },
   mutations: {
-    ADD_ANSWER(state, answer) {
-      state.answers.push(answer)
+    ADD_PLAN(state, plan) {
+      state.plans.push(plan)
     }
   },
   actions: {
-    CREATE_ANSWER({ commit }, answer) {
-      ClientService.postQuestion(answer)
-      commit("ADD_ANSWER", answer)
+    CREATE_PLAN({ commit }, plan) {
+      ClientService.postPlan(plan)
+      commit("ADD_PLAN", plan)
     }
   },
   getters: {}

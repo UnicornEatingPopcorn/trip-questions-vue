@@ -1,13 +1,13 @@
 <template lang="pug">
-  router-link(class="plan-link" :to="{ name: 'plan-show', params: { id: plan.id } }")
-    div(class="plan-card")
-      h4(class="title") {{ plan.id }}
+router-link(class="plan-link" :to="{ name: 'plan-show', params: { id: plan.id } }")
+  div(class="plan-card")
+    h4(class="title") {{ plan.id }}
 </template>
 
 <script>
 export default {
   props: {
-    plan: Object,
+    plan: Object
   }
 }
 </script>

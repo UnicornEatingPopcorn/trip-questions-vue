@@ -2,9 +2,9 @@
   #nav.nav
     router-link.nav-brand(:to="{ path: '/' }") Questions
     .col-4.justify-content-left
-      router-link.nav-path(:to="{ name: 'plan-list' }") Plans
-      span.pipe |
       router-link.nav-path(:to="{ name: 'plan-create' }") Create plan
+      span.pipe |
+      router-link.nav-path(:to="{ name: 'plan-list' }") Plans
       span.pipe |
       router-link.nav-path(:to="{ name: 'plan-show' }") Show plan
 
