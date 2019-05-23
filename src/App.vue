@@ -30,4 +30,10 @@ export default {
 
 h1
   color: #BAE5FE
+
+.base-input
+   width: 220px !important
+   height: 35px
+   background-color: white !important
+   color: black !important
 </style>

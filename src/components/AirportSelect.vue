@@ -1,6 +1,6 @@
 <template lang="pug">
   label(v-if="label") {{ label }}
-    select(@change="updateValue" v-bind="$attrs" v-on="$listeners" class="form-control")
+    select(@change="updateValue" v-bind="$attrs" v-on="$listeners" class="form-control base-input")
       option(
         v-for="airport in airports"
         :value="airport.icao"
