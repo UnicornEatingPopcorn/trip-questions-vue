@@ -12,7 +12,7 @@ export default {
   },
   data () {
     return {
-      value: Date
+      date: new Date ()
     }
   },
   props: {
@@ -23,7 +23,7 @@ export default {
   },
   methods: {
     updateValue(event) {
-      this.$emit("input", event.target.value)
+      this.$emit("input", event)
     }
   }
 }

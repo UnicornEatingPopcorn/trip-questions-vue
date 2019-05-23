@@ -3,10 +3,14 @@
 </template>
 
 <script>
+import AirportSelect from "@/components/AirportSelect.vue"
 
 export default {
   props: {
     answer: Object
+  },
+  components: {
+    AirportSelect
   }
 }
 </script>

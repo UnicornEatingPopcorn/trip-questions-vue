@@ -24,5 +24,9 @@ export default {
 
   postPlan() {
     return apiClient.post("/plans")
+  },
+
+  getAirports() {
+    return apiClient.get("/airports")
   }
 }

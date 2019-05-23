@@ -6,12 +6,7 @@
       "placeholder": "Arrival city",
       "slug": "arrival-place",
       "step": 1,
-      "component": "BaseSelect",
-      "select_options": [
-        { "name": "Moscow", "id": 1 },
-        { "name": "Paris", "id": 2 },
-        { "name": "New-York", "id": 3 }
-      ]
+      "component": "AirportSelect"
     },
     {
       "id": 2,
@@ -19,12 +14,7 @@
       "placeholder": "Departure city",
       "slug": "departure-place",
       "step": 1,
-      "component": "BaseSelect",
-      "select_options": [
-        { "name": "Moscow", "id": 1 },
-        { "name": "Paris", "id": 2 },
-        { "name": "New-York", "id": 3 }
-      ]
+      "component": "AirportSelect"
     },
     {
       "id": 3,
@@ -291,6 +281,68 @@
         { "question_id": 11, "value": "1" },
         { "question_id": 12, "value": "16 hours" }
       ]
+    }
+  ],
+  "airports": [
+    {
+      "icao": "00AK",
+      "iata": "",
+      "name": "Lowell Field",
+      "city": "Anchor Point",
+      "state": "Alaska",
+      "country": "US",
+      "elevation": 450,
+      "lat": 59.94919968,
+      "lon": -151.695999146,
+      "tz": "America/Anchorage"
+    },
+    {
+      "icao": "00AL",
+      "iata": "",
+      "name": "Epps Airpark",
+      "city": "Harvest",
+      "state": "Alabama",
+      "country": "US",
+      "elevation": 820,
+      "lat": 34.8647994995,
+      "lon": -86.7703018188,
+      "tz": "America/Chicago"
+    },
+    {
+      "icao": "00AZ",
+      "iata": "",
+      "name": "Cordes Airport",
+      "city": "Cordes",
+      "state": "Arizona",
+      "country": "US",
+      "elevation": 3810,
+      "lat": 34.3055992126,
+      "lon": -112.1650009155,
+      "tz": "America/Phoenix"
+    },
+    {
+      "icao": "00CA",
+      "iata": "",
+      "name": "Goldstone /Gts/ Airport",
+      "city": "Barstow",
+      "state": "California",
+      "country": "US",
+      "elevation": 3038,
+      "lat": 35.3504981995,
+      "lon": -116.888000488,
+      "tz": "America/Los_Angeles"
+    },
+    {
+      "icao": "00CO",
+      "iata": "",
+      "name": "Cass Field",
+      "city": "Briggsdale",
+      "state": "Colorado",
+      "country": "US",
+      "elevation": 4830,
+      "lat": 40.6222000122,
+      "lon": -104.34400177,
+      "tz": "America/Denver"
     }
   ]
 }
