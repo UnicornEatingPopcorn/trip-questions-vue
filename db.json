@@ -204,18 +204,58 @@
     {
       "id": 1,
       "answers": [
-        { "question_id": 1, "value": "Moscow" },
-        { "question_id": 2, "value": "Paris" },
-        { "question_id": 3, "value": "3" },
-        { "question_id": 4, "value": "Return" },
-        { "question_id": 5, "value": "20.05.2019" },
-        { "question_id": 6, "value": "27.05.2019" },
-        { "question_id": 7, "value": "3000$" },
-        { "question_id": 8, "value": "No" },
-        { "question_id": 9, "value": "11 am" },
-        { "question_id": 10, "value": "7 pm" },
-        { "question_id": 11, "value": "0" },
-        { "question_id": 12, "value": "5 hours" }
+        {
+          "question_id": 1,
+          "question_title": "From",
+          "value": "Moscow"
+        },
+        { "question_id": 2, "question_title": "To", "value": "Paris" },
+        { "question_id": 3, "question_title": "How many people", "value": "3" },
+        {
+          "question_id": 4,
+          "question_title": "There and back",
+          "value": "Return"
+        },
+        {
+          "question_id": 5,
+          "question_title": "When to go",
+          "value": "20.05.2019"
+        },
+        {
+          "question_id": 6,
+          "question_title": "Return date",
+          "value": "27.05.2019"
+        },
+        {
+          "question_id": 7,
+          "question_title": "Expenses value",
+          "value": "3000$"
+        },
+        {
+          "question_id": 8,
+          "question_title": "Do you need the Road Book?",
+          "value": "No"
+        },
+        {
+          "question_id": 9,
+          "question_title": "Approximate arrival time",
+          "value": "11 am"
+        },
+        {
+          "question_id": 10,
+          "question_title": "Approximate returning time",
+          "value": "7 pm"
+        },
+        {
+          "question_id": 11,
+          "question_title": "Max number of transfers",
+          "value": "0"
+        },
+        {
+          "question_id": 12,
+          "question_title": "Maximum flight time",
+          "value": "5 hours"
+        }
       ]
     },
     {

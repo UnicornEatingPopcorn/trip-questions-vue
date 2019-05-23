@@ -1,6 +1,6 @@
 <template lang="pug">
   label.form-text {{ label }}
-    datepicker(:value="date" @selected="updateValue" v-on="$listeners")
+    datepicker(:value="date" @selected="updateValue" v-on="$listeners" :bootstrap-styling="true")
 </template>
 
 <script>

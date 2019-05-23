@@ -1,6 +1,6 @@
 <template lang="pug">
   label(v-if="label") {{ label }}
-    select(@change="updateValue" v-bind="$attrs" v-on="$listeners" class="select-input")
+    select(@change="updateValue" v-bind="$attrs" v-on="$listeners" class="form-control")
       option(
         v-for="option in options"
         :value="option.id"
