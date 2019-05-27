@@ -14,9 +14,10 @@ export default new Vuex.Store({
     }
   },
   actions: {
-    CREATE_PLAN({ commit }, plan) {
-      ClientService.postPlan(plan)
-      commit("ADD_PLAN", plan)
+    createPlan({ commit }, plan) {
+      return ClientService.postPlan(plan).then(() => {
+        commit("ADD_PLAN", plan.data)
+      })
     }
   },
   getters: {}

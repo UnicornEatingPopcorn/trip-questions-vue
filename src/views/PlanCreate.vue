@@ -3,7 +3,7 @@
   .row.justify-content-center
     .col-9
       h1.mb-3.text-center.top-margin Create Plan
-      form#mainQuestions.position-relative.question-plan
+      form#mainQuestions.position-relative.question-plan(@submit.prevent="createPlan")
        .row.form-group
          .col-12.text-center
            h5.font-alt.form-text
@@ -11,46 +11,69 @@
            //- img.fluid-grow(src="@/assets/smile.png" height="100px", width="100px")
            .line
        .row.mb-3
-         Question(v-for="question in questions" :key="question.id" :question="question" :step="step")
+         Answer(v-for="answer in plan.answers" :key="answer.question.id" :answer="answer" :step="step")
        .row
          .col
            button.btn.btn-info.btn-block(v-if="step === 1" @click.prevent="step += 1") Next
            button.btn.btn-info.btn-block(v-if="step === 2" @click.prevent="step -= 1") Prev
          .col
-           button.btn.btn-primary.btn-block(v-if="step === 2" @submit.prevent="createAnswer") Submit
-
-
-
+           button.btn.btn-primary.btn-block(v-if="step === 2") Submit
 </template>
 
 <script>
 import Datepicker from "vuejs-datepicker"
-import Question from "@/components/Question.vue"
+import Answer from "@/components/Answer.vue"
 import ClientService from "@/services/ClientService.js"
 
 export default {
   components: {
     Datepicker,
-    Question
+    Answer
   },
   created() {
     ClientService.getQuestions()
       .then(response => {
-        this.questions = response.data
+        const questions = response.data
+        this.plan.answers = questions.map(question => {
+          const id = Math.floor(Math.random() * 10000000)
+
+          return { question, value: "", id }
+        })
       })
       .catch(error => {
-        console.log('There was an error:', error.response)
+        console.log("There was an error:", error.response)
       })
   },
   data() {
     return {
       step: 1,
-      questions: [],
+      plan: this.createFreshPlan()
     }
   },
-  methods: {}
-}
+  methods: {
+    createFreshPlan() {
+      const id = Math.floor(Math.random() * 10000000)
 
+      return {
+        id: id,
+        answers: []
+      }
+    },
+    createPlan() {
+      this.$store
+        .dispatch("createPlan", this.plan)
+        .then(() => {
+          this.$router.push({
+            name: "plan-list"
+          })
+          this.plan = this.createFreshPlan()
+        })
+        .catch(() => {
+          console.log("There was a problem creating your plan.")
+        })
+    }
+  }
+}
 </script>
 
 <style lang="sass">
@@ -91,5 +114,4 @@ h1
 .purple-content
   height: 100%
   background-color: #8d95fdc4
-
 </style>

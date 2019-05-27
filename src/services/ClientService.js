@@ -22,8 +22,8 @@ export default {
     return apiClient.get("/plans/" + id)
   },
 
-  postPlan() {
-    return apiClient.post("/plans")
+  postPlan(plan) {
+    return apiClient.post("/plans", plan)
   },
 
   getAirports() {
