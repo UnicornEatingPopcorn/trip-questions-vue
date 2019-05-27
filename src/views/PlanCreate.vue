@@ -111,7 +111,4 @@ h1
 .top-margin
   margin-top: 70px
 
-.purple-content
-  height: 100%
-  background-color: #8d95fdc4
 </style>

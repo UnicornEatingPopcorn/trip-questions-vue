@@ -1,5 +1,6 @@
 <template lang="pug">
-  label.form-text {{ label }}
+  form-group
+    label.form-text {{ label }}
     datepicker(:value="date" @selected="updateValue" :bootstrap-styling="true" input-class="base-input")
 </template>
 

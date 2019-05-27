@@ -1,10 +1,13 @@
 <template lang="pug">
   #nav.nav
-    router-link.nav-brand(:to="{ path: '/' }") Questions
-    .col-3.justify-content-left
-      router-link.nav-path(:to="{ name: 'plan-create' }") Create plan
-      span.pipe |
-      router-link.nav-path(:to="{ name: 'plan-list' }") Plans
+    .container
+      .row
+        .col-9
+          router-link.nav-brand(:to="{ path: '/' }") Questions
+        .col-3.nav-path
+          router-link(:to="{ name: 'plan-create' }") Create plan
+          span.pipe |
+          router-link(:to="{ name: 'plan-list' }") Plans
 
 </template>
 
@@ -27,7 +30,6 @@ export default {
   font-size: 1.5em
   color: #000000e3
   text-decoration: none
-  margin-left: 40px
 
 .pipe
   margin-left: 10px
@@ -35,4 +37,5 @@ export default {
 
 .nav-path
   color: #000000e3
+  margin: auto
 </style>

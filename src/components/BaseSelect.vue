@@ -1,5 +1,6 @@
 <template lang="pug">
-  label(v-if="label") {{ label }}
+  form-group
+    label(v-if="label") {{ label }}
     select(@change="updateValue" v-bind="$attrs" class="form-control base-input")
       option(
         v-for="option in options"
