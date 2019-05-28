@@ -14,8 +14,8 @@ export default {
     return apiClient.get("/questions")
   },
 
-  getPlans() {
-    return apiClient.get("/plans")
+  getPlans(perPage, page) {
+    return apiClient.get("/plans?_limit=" + perPage + "&_page=" + page)
   },
 
   getPlan(id) {

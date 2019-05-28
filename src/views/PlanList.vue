@@ -1,13 +1,17 @@
 <template lang="pug">
 .container.purple-content.top-padding
-  .col-8.text-center.col-margin
-    h1.mb-5 Plan List
-    PlanCard.mt-2(v-for="plan in plans" :key="plan.id" :plan="plan")
+  .row
+    .col-8.text-center.col-margin
+      h1.mb-5 Plan List
+      PlanCard.mt-2(v-for="plan in plans" :key="plan.id" :plan="plan")
+      router-link.plan-list__link(v-if="page !=1 " :to="{ name: 'plan-list', query: { page: page - 1 } }" rel="prev") Prev Page
+      div.d-inline(v-if="page != 1")  |
+      router-link.plan-list__link(:to="{ name: 'plan-list', query: { page: page + 1 } }" rel="next")  Next Page
 </template>
 
 <script>
-import ClientService from "@/services/ClientService.js"
 import PlanCard from "@/components/PlanCard.vue"
+import { mapState } from "vuex"
 
 export default {
   props: {
@@ -16,19 +20,20 @@ export default {
   components: {
     PlanCard
   },
-  data() {
-    return {
-      plans: []
-    }
-  },
   created() {
-    ClientService.getPlans()
-      .then(response => {
-        this.plans = response.data
-      })
-      .catch(error => {
-        console.log('There was an error:', error.response)
-      })
+    this.$store.dispatch("fetchPlans", {
+      perPage: 4,
+      page: this.page
+    })
+  },
+  computed: {
+    page() {
+      return parseInt(this.$route.query.page) || 1
+    },
+    hasNextPage() {
+      return this.plansTotal > this.page * this.perPage
+    },
+    ...mapState(["plans", "plansTotal"])
   }
 }
 </script>
@@ -40,4 +45,6 @@ export default {
 .col-margin
   margin: 0 auto
 
+.plan-list__link
+  color: #004085
 </style>
