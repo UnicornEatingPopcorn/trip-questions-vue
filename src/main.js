@@ -6,6 +6,7 @@ import store from "./store/store"
 import upperFirst from "lodash/upperFirst"
 import camelCase from "lodash/camelCase"
 import "@/assets/bootstrap-variables.sass"
+import "nprogress/nprogress.css"
 
 Vue.use(BootstrapVue)
 
