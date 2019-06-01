@@ -8,7 +8,7 @@
         h5(v-for="answer in plan.answers" :key="answer.id") {{ answer.question.id}}. {{ answer.question.title }} : {{ answer.value }}
         .row.button_margin-top
           .col
-            router-link.btn.btn-info.btn-block(:to="{ name: 'plan-create' }") Edit
+            router-link.btn.btn-info.btn-block(:to="{ name: 'plan-edit', params: { id: plan.id } }") Edit
           .col
             button.btn.btn-info.btn-block Buy
 
