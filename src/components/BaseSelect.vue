@@ -1,12 +1,15 @@
 <template lang="pug">
-  form-group
-    label(v-if="label") {{ label }}
-    select(@change="updateValue" v-bind="$attrs" class="form-control base-input")
-      option(
-        v-for="option in options"
-        :value="option.id"
-        :key="option.id"
-        :selected="option === value") {{ option.name }}
+  form
+    .row
+      .col-5
+        label(v-if="label") {{ label }}:
+      .col-7
+        select(@change="updateValue" v-bind="$attrs" class="form-control base-input")
+          option(
+            v-for="option in options"
+            :value="option.id"
+            :key="option.id"
+            :selected="option === value") {{ option.name }}
 </template>
 
 <script>

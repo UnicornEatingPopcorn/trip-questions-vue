@@ -4,9 +4,11 @@
     .col-8.text-center.col-margin
       h1.mb-5 Plan List
       PlanCard.mt-2(v-for="plan in plans" :key="plan.id" :plan="plan")
-      router-link.plan-list__link(v-if="page !=1 " :to="{ name: 'plan-list', query: { page: page - 1 } }" rel="prev") Prev Page
-      div.d-inline(v-if="page != 1")  |
+      div(v-if="page != 1")
+        router-link.plan-list__link(:to="{ name: 'plan-list', query: { page: page - 1 } }" rel="prev") Prev Page
+      div.d-inline(v-if="hasNextPage")  |
       router-link.plan-list__link(:to="{ name: 'plan-list', query: { page: page + 1 } }" rel="next")  Next Page
+
 </template>
 
 <script>

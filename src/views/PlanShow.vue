@@ -2,9 +2,16 @@
 .container.purple-content
   .row.justify-content-center
     .col-9
-      h1 Plan № {{ id }}
-      h2 Answers:
-      h3(v-for="answer in plan.answers" :key="answer.id") {{ answer.question.title }} : {{ answer.value }}
+      h1.mb-3.text-center.top-margin Plan № {{ id }}
+      form.question-plan
+        h3 Answers:
+        h5(v-for="answer in plan.answers" :key="answer.id") {{ answer.question.id}}. {{ answer.question.title }} : {{ answer.value }}
+        .row.button_margin-top
+          .col
+            router-link.btn.btn-info.btn-block(:to="{ name: 'plan-create' }") Edit
+          .col
+            button.btn.btn-info.btn-block Buy
+
 </template>
 
 <script>

@@ -1,7 +1,10 @@
 <template lang="pug">
-  form-group
-    label.form-text {{ label }}
-    datepicker(:value="date" @selected="updateValue" :bootstrap-styling="true" input-class="base-input")
+  form
+    .row
+      .col-5
+        label.form-text {{ label }}:
+      .col-7
+        datepicker(:value="date" @selected="updateValue" :bootstrap-styling="true" input-class="base-input")
 </template>
 
 <script>

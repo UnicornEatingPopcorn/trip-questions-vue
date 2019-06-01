@@ -7,7 +7,9 @@ import upperFirst from "lodash/upperFirst"
 import camelCase from "lodash/camelCase"
 import "@/assets/bootstrap-variables.sass"
 import "nprogress/nprogress.css"
+import Vuelidate from "vuelidate"
 
+Vue.use(Vuelidate)
 Vue.use(BootstrapVue)
 
 const requireComponent = require.context(

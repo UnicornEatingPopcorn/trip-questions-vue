@@ -1,12 +1,15 @@
 <template lang="pug">
-  form-group
-    label(v-if="label") {{ label }}
-    select(@change="updateValue" v-bind="$attrs" class="form-control base-input")
-      option(
-        v-for="airport in airports"
-        :value="airport.icao"
-        :key="airport.icao"
-        :selected="airport.icao === value") {{ airport.icao }}, {{ airport.city }}
+  form
+    .row
+      .col-5
+        label(v-if="label") {{ label }}:
+      .col-7
+        select(@change="updateValue" v-bind="$attrs" class="form-control base-input")
+          option(
+            v-for="airport in airports"
+            :value="airport.city"
+            :key="airport.icao"
+            :selected="airport.city === value") {{ airport.icao }}, {{ airport.city }}
 </template>
 
 <script>
