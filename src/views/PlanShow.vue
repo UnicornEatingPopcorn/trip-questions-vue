@@ -10,7 +10,7 @@
           .col
             router-link.btn.btn-info.btn-block(:to="{ name: 'plan-edit', params: { id: plan.id } }") Edit
           .col
-            a.btn.btn-danger.btn-block(@click="deletePlan") Delete
+            a.btn.btn-danger.btn__text-white.btn-block(@click="deletePlan") Delete
 
 </template>
 
@@ -49,4 +49,7 @@ export default {
 }
 </script>
 
-<style lang="sass"></style>
+<style lang="sass">
+.btn__text-white
+  color: white !important
+</style>
