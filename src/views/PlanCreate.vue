@@ -100,5 +100,4 @@ h1
   height: 3px
   background: #0F1886
   margin: 0 auto
-
 </style>

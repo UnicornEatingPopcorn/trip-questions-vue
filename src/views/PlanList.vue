@@ -15,24 +15,32 @@
 <script>
 import PlanCard from "@/components/PlanCard.vue"
 import { mapState } from "vuex"
+import store from "@/store/store"
+
+function getPagePlans(routeTo, next) {
+  const currentPage = parseInt(routeTo.query.page || 1)
+  store
+    .dispatch("fetchPlans", {
+      page: currentPage
+    })
+    .then(() => {
+      // pass it into the component as a prop, so we can print next pages
+      routeTo.params.page = currentPage
+      next()
+    })
+}
 
 export default {
-  data() {
-    return {
-      perPage: 4
-    }
-  },
-  props: {
-    plan: Object
-  },
   components: {
     PlanCard
   },
-  created() {
-    this.$store.dispatch("fetchPlans", {
-      perPage: this.perPage,
-      page: this.page
-    })
+  beforeRouteEnter(routeTo, routeFrom, next) {
+    // Before we enter the route
+    getPagePlans(routeTo, next)
+  },
+  beforeRouteUpdate(routeTo, routeFrom, next) {
+    // Before we update the route
+    getPagePlans(routeTo, next)
   },
   computed: {
     page() {
@@ -41,7 +49,7 @@ export default {
     hasNextPage() {
       return this.plansTotal > this.page * this.perPage
     },
-    ...mapState(["plans", "plansTotal"])
+    ...mapState(["plans", "plansTotal", "perPage"])
   }
 }
 </script>

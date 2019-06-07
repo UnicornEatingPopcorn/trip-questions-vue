@@ -8,7 +8,8 @@ export default new Vuex.Store({
   state: {
     plans: [],
     plan: {},
-    plansTotal: 0
+    plansTotal: 0,
+    perPage: 4
   },
   mutations: {
     ADD_PLAN(state, plan) {
@@ -46,8 +47,8 @@ export default new Vuex.Store({
         commit("UPDATE_PLAN", response.data)
       })
     },
-    fetchPlans({ commit }, { perPage, page }) {
-      ClientService.getPlans(perPage, page)
+    fetchPlans({ commit }, { page }) {
+      return ClientService.getPlans(this.state.perPage, page)
         .then(response => {
           commit("SET_PLANS_TOTAL", parseInt(response.headers["x-total-count"]))
           commit("SET_PLANS", response.data)

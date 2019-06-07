@@ -4,10 +4,12 @@ import PlanCreate from "./views/PlanCreate.vue"
 import PlanList from "./views/PlanList.vue"
 import PlanShow from "./views/PlanShow.vue"
 import PlanEdit from "./views/PlanEdit.vue"
+import NProgress from "nprogress"
+import store from "@/store/store"
 
 Vue.use(Router)
 
-export default new Router({
+const router = new Router({
   mode: "history",
   base: process.env.BASE_URL,
   routes: [
@@ -19,7 +21,8 @@ export default new Router({
     {
       path: "/plans",
       name: "plan-list",
-      component: PlanList
+      component: PlanList,
+      props: true
     },
     {
       path: "/plan-show/:id",
@@ -35,3 +38,15 @@ export default new Router({
     }
   ]
 })
+
+router.beforeEach((routeTo, routeFrom, next) => {
+  // Start the route progress bar.
+  NProgress.start()
+  next()
+})
+router.afterEach(() => {
+  // Complete the animation of the route progress bar.
+  NProgress.done()
+})
+
+export default router
