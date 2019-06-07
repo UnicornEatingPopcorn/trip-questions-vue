@@ -42,7 +42,9 @@ export default {
             name: "plan-list"
           })
         })
-        .catch(() => {
+        .catch(err => {
+          console.log(err.message)
+          console.log(err.stack)
           console.log("There was a problem updating your plan.")
         })
     }
@@ -74,5 +76,4 @@ h1
   height: 3px
   background: #0F1886
   margin: 0 auto
-
 </style>

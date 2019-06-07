@@ -39,16 +39,11 @@ export default {
       }
     },
     deletePlan() {
-      this.$store
-        .dispatch("deletePlan", this.id)
-        .then(() => {
-          this.$router.push({
-            name: "plan-list"
-          })
+      this.$store.dispatch("deletePlan", this.id).then(() => {
+        this.$router.push({
+          name: "plan-list"
         })
-        .catch(() => {
-          console.log("There was a problem creating your plan.")
-        })
+      })
     }
   }
 }

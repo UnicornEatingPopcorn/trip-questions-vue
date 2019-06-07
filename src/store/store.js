@@ -42,8 +42,8 @@ export default new Vuex.Store({
       })
     },
     updatePlan({ commit }, plan) {
-      return ClientService.updatePlan(plan).then(() => {
-        commit("UPDATE_PLAN", plan.data)
+      return ClientService.updatePlan(plan).then(response => {
+        commit("UPDATE_PLAN", response.data)
       })
     },
     fetchPlans({ commit }, { perPage, page }) {
