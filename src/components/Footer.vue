@@ -1,5 +1,5 @@
 <template lang="pug">
-  footer.nav
+  footer.nav.fixed-bottom
     .container
       .row.col-4.offset-md-4
         img.footer-brand(src="@/assets/GitHub-Mark-32px.png")

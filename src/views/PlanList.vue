@@ -4,10 +4,11 @@
     .col-8.text-center.col-margin
       h1.mb-5 Plan List
       PlanCard.mt-2(v-for="plan in plans" :key="plan.id" :plan="plan")
-      div(v-if="page != 1")
+      template(v-if="page != 1")
         router-link.plan-list__link(:to="{ name: 'plan-list', query: { page: page - 1 } }" rel="prev") Prev Page
-      div.d-inline(v-if="hasNextPage")  |
-      router-link.plan-list__link(:to="{ name: 'plan-list', query: { page: page + 1 } }" rel="next")  Next Page
+      template(v-if="hasNextPage")
+        span.d-inline  |
+        router-link.plan-list__link(:to="{ name: 'plan-list', query: { page: page + 1 } }" rel="next")  Next Page
 
 </template>
 
@@ -16,6 +17,11 @@ import PlanCard from "@/components/PlanCard.vue"
 import { mapState } from "vuex"
 
 export default {
+  data() {
+    return {
+      perPage: 4
+    }
+  },
   props: {
     plan: Object
   },
@@ -24,7 +30,7 @@ export default {
   },
   created() {
     this.$store.dispatch("fetchPlans", {
-      perPage: 4,
+      perPage: this.perPage,
       page: this.page
     })
   },

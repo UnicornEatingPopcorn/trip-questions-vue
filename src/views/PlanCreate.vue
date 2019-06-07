@@ -14,9 +14,8 @@
          Answer(
            v-for="answer in plan.answers"
            :key="answer.question.id"
-           :answer="answer"
-           @blur="$v.plan.answer.$touch()")
-         //- p.error-message(v-if="!$v.plan.answer.required") Field is required to be filled.
+           :answer="answer")
+
        .row
          .col-6.offset-md-6
            button.btn.btn-primary.btn-block Submit
@@ -26,7 +25,6 @@
 import Datepicker from "vuejs-datepicker"
 import Answer from "@/components/Answer.vue"
 import ClientService from "@/services/ClientService.js"
-import { required } from "vuelidate/lib/validators"
 
 export default {
   components: {
@@ -50,11 +48,6 @@ export default {
   data() {
     return {
       plan: this.createFreshPlan()
-    }
-  },
-  validations: {
-    plan: {
-      answer: { required }
     }
   },
   methods: {

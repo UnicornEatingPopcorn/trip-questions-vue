@@ -47,9 +47,6 @@ h1
 .error-message
   color: red
 
-.error
-  border: 1px solid red
-
 .button_margin-top
   margin-top: 20px
 

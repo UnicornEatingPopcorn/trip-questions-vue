@@ -4,16 +4,23 @@
       .col-5
         label(v-if="label") {{ label }}:
       .col-7
-        select(@change="updateValue" v-bind="$attrs" class="form-control base-input")
+        select(@change="updateValue" v-bind="$attrs" class="form-control base-input" @blur="$v.value.$touch()" :class="{ 'is-invalid': $v.value.$error }")
           option(
             v-for="option in options"
             :value="option.id"
             :key="option.id"
             :selected="option === value") {{ option.name }}
+        template(v-if="$v.value.$error")
+          p.error-message(v-if="!$v.value.required") Field is required to be filled.
 </template>
 
 <script>
+import { required } from "vuelidate/lib/validators"
+
 export default {
+  validations: {
+    value: { required }
+  },
   inheritAttrs: false,
   props: {
     label: {

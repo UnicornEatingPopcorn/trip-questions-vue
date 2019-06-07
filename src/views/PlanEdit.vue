@@ -3,7 +3,7 @@
   .row.justify-content-center
     .col-11
       h1.mb-3.text-center.top-margin Edit Plan № {{ id }}
-      form#mainQuestions.position-relative.question-plan(@submit.prevent="createPlan")
+      form#mainQuestions.position-relative.question-plan(@submit.prevent="updatePlan")
        .row.form-group
          .col-12.text-center
            h5.font-alt.form-text
@@ -14,70 +14,37 @@
          Answer(
            v-for="answer in plan.answers"
            :key="answer.question.id"
-           :answer="answer"
-           @blur="$v.plan.answer.$touch()")
-         //- p.error-message(v-if="!$v.plan.answer.required") Field is required to be filled.
+           :answer="answer")
        .row
          .col-6.offset-md-6
            button.btn.btn-primary.btn-block Submit
 </template>
 
 <script>
-import Datepicker from "vuejs-datepicker"
 import Answer from "@/components/Answer.vue"
 import ClientService from "@/services/ClientService.js"
-import { required } from "vuelidate/lib/validators"
+import { mapState } from "vuex"
 
 export default {
+  computed: mapState(["plan"]),
   props: ["id"],
   components: {
-    Datepicker,
     Answer
   },
   created() {
-    ClientService.getQuestions()
-      .then(response => {
-        const questions = response.data
-        this.plan.answers = questions.map(question => {
-          const id = Math.floor(Math.random() * 10000000)
-
-          return { question, value: "", id }
-        })
-      })
-      .catch(error => {
-        console.log("There was an error:", error.response)
-      })
-  },
-  data() {
-    return {
-      plan: this.createFreshPlan()
-    }
-  },
-  validations: {
-    plan: {
-      answer: { required }
-    }
+    this.$store.dispatch("fetchPlan", this.id)
   },
   methods: {
-    createFreshPlan() {
-      const id = Math.floor(Math.random() * 10000000)
-
-      return {
-        id: id,
-        answers: []
-      }
-    },
-    createPlan() {
+    updatePlan() {
       this.$store
-        .dispatch("createPlan", this.plan)
+        .dispatch("updatePlan", this.plan)
         .then(() => {
           this.$router.push({
             name: "plan-list"
           })
-          this.plan = this.createFreshPlan()
         })
         .catch(() => {
-          console.log("There was a problem creating your plan.")
+          console.log("There was a problem updating your plan.")
         })
     }
   }

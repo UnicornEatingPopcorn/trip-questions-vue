@@ -32,8 +32,16 @@ export default {
     return apiClient.get("/plans/" + id)
   },
 
+  deletePlan(id) {
+    return apiClient.delete("/plans/" + id)
+  },
+
   postPlan(plan) {
     return apiClient.post("/plans", plan)
+  },
+
+  updatePlan(plan) {
+    return apiClient.patch("/plans/" + plan.id, plan)
   },
 
   getAirports() {

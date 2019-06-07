@@ -14,8 +14,19 @@ export default new Vuex.Store({
     ADD_PLAN(state, plan) {
       state.plans.push(plan)
     },
+    UPDATE_PLAN(state, updatedPlan) {
+      state.plans = state.plans.map(plan => {
+        if (updatedPlan.id == plan.id) {
+          return updatedPlan
+        }
+        return plan
+      })
+    },
     SET_PLANS(state, plans) {
       state.plans = plans
+    },
+    DELETE_PLAN(state, planId) {
+      state.plans = state.plans.filter(plan => planId !== plan.id)
     },
     SET_PLAN(state, plan) {
       state.plan = plan
@@ -28,6 +39,11 @@ export default new Vuex.Store({
     createPlan({ commit }, plan) {
       return ClientService.postPlan(plan).then(() => {
         commit("ADD_PLAN", plan.data)
+      })
+    },
+    updatePlan({ commit }, plan) {
+      return ClientService.updatePlan(plan).then(() => {
+        commit("UPDATE_PLAN", plan.data)
       })
     },
     fetchPlans({ commit }, { perPage, page }) {
@@ -54,6 +70,11 @@ export default new Vuex.Store({
             console.log("There was an error:", error.response)
           })
       }
+    },
+    deletePlan({ commit }, id) {
+      return ClientService.deletePlan(id).then(() => {
+        commit("DELETE_PLAN", id)
+      })
     }
   },
   getters: {
