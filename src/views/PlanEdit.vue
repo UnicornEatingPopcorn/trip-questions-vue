@@ -22,7 +22,6 @@
 
 <script>
 import Answer from "@/components/Answer.vue"
-import ClientService from "@/services/ClientService.js"
 import { mapState } from "vuex"
 
 export default {

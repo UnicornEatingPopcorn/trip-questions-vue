@@ -59,7 +59,7 @@ export default new Vuex.Store({
     fetchPlan({ commit, getters }, id) {
       var plan = getters.getPlanById(id)
 
-      if (event) {
+      if (plan) {
         commit("SET_PLAN", plan)
       } else {
         ClientService.getPlan(id)

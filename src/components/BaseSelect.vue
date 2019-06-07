@@ -9,7 +9,7 @@
             v-for="option in options"
             :value="option.id"
             :key="option.id"
-            :selected="option === value") {{ option.name }}
+            :selected="option.id == value") {{ option.name }}
         template(v-if="$v.value.$error")
           p.error-message(v-if="!$v.value.required") Field is required to be filled.
 </template>

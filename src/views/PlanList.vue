@@ -7,7 +7,7 @@
       template(v-if="page != 1")
         router-link.plan-list__link(:to="{ name: 'plan-list', query: { page: page - 1 } }" rel="prev") Prev Page
       template(v-if="hasNextPage")
-        span.d-inline  |
+        span.d-inline(v-if="page != 1")  |
         router-link.plan-list__link(:to="{ name: 'plan-list', query: { page: page + 1 } }" rel="next")  Next Page
 
 </template>
