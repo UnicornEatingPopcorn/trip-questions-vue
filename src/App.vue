@@ -19,6 +19,8 @@ export default {
 </script>
 
 <style lang="sass">
+@import url('https://fonts.googleapis.com/css?family=Montserrat&display=swap')
+
 #app
   width: 100%
   height: 80%
@@ -52,4 +54,7 @@ h1
 
 .top-margin
   margin-top: 40px
+
+body
+  font-family: 'Montserrat', sans-serif
 </style>
