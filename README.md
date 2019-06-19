@@ -1,5 +1,5 @@
 # trip-questions-vue
-
+![screen](https://i.imgur.com/vFYUGH4.png)
 ## Project setup
 ```
 npm install
