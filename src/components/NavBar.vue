@@ -38,4 +38,5 @@ export default {
 .nav-path
   color: #000000e3
   margin: auto
+  text-align: right
 </style>

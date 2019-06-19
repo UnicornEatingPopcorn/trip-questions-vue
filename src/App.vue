@@ -28,7 +28,7 @@ export default {
 
 .purple-content
   background-color: #8d95fdc4
-  height: 100vh
+  height: calc(100vh - 60px)
 
 .question-plan
   background-color: #BAE5FE
