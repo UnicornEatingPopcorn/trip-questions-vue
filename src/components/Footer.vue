@@ -2,8 +2,8 @@
   footer.nav.fixed-bottom
     .container
       .row.col-4.offset-md-4
-        img.footer-brand(src="@/assets/GitHub-Mark-32px.png")
-        a.footer-brand(href="https://github.com/Malory6072") My github profile
+        a.footer-brand(href="https://github.com/Malory6072") Adventurous Hunter
+          img.footer-brand(src="@/assets/GitHub-Mark-32px.png")
 
 </template>
 
@@ -25,5 +25,6 @@ export default {
   font-size: 1.3em
   color: #000000e3
   margin: auto
+  margin-left: 10px
 
 </style>
