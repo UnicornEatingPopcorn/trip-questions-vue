@@ -39,6 +39,9 @@ export default {
   border: solid 2px #C0C5FE
   margin-top: 40px
 
+.select-input
+  width: 220px
+
 h1
   color: #BAE5FE
 

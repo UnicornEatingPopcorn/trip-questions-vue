@@ -2,7 +2,7 @@
   footer.nav.fixed-bottom
     .container
       .row.col-4.offset-md-4
-        a.footer-brand(href="https://github.com/Malory6072") Adventurous Hunter
+        a.footer-brand(href="https://github.com/AdventurousHunter") Adventurous Hunter
           img.footer-brand(src="@/assets/GitHub-Mark-32px.png")
 
 </template>
