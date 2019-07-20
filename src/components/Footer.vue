@@ -24,7 +24,9 @@ export default {
   font-family: 'Montserrat', sans-serif
   font-size: 1.3em
   color: #000000e3
-  margin: auto
   margin-left: 10px
 
+img
+  margin-bottom: 2px
+  height: 20px
 </style>

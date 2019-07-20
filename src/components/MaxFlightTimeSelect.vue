@@ -8,6 +8,10 @@ export default {
     return {
       options: [
         {
+          name: "Max flight time",
+          value: null
+        },
+        {
           name: "5 hours",
           value: 1
         },

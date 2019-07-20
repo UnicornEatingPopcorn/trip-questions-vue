@@ -7,9 +7,9 @@
         select(@change="updateValue" v-bind="$attrs" class="form-control base-input" @blur="$v.value.$touch()" :class="{ 'is-invalid': $v.value.$error }")
           option(
             v-for="option in options"
-            :key="option.id"
-            :value="option.id"
-            :selected="option.id == value") {{ option.name }}
+            :key="option.value"
+            :value="option.value"
+            :selected="option.value === null") {{ option.name }}
         template(v-if="$v.value.$error")
           p.error-message(v-if="!$v.value.required") Field is required to be filled.
 </template>
