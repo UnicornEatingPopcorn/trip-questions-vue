@@ -4,11 +4,7 @@
       .col-5
         label(v-if="label") {{ label }}:
       .col-7
-        //- input(type="text" @input="updateValue" v-bind="$attrs" class="form-control base-input" @blur="$v.value.$touch()" :class="{ 'is-invalid': $v.value.$error }")
-        select(class="form-control base-input")
-          option(value="Mosow") Moscow
-          option(value="Saint-Petersburg") Saint-Petersburg
-          option(value="Helsinki") Helsinki
+        input(type="text" @input="updateValue" v-bind="$attrs" class="form-control base-input" @blur="$v.value.$touch()" :class="{ 'is-invalid': $v.value.$error }")
           //- option(
           //-   v-for="airport in airports"
           //-   :value="airport.city"
