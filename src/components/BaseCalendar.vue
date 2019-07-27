@@ -1,9 +1,7 @@
 <template lang="pug">
   form
     .row
-      .col-5
-        label.form-text {{ label }}:
-      .col-7
+      .col-12
         datepicker(:value="date" @selected="updateValue" :bootstrap-styling="true" input-class="base-input")
 </template>
 
@@ -34,6 +32,5 @@ export default {
 </script>
 
 <style lang="sass">
-.datepicker-field
-  width: 220px
+
 </style>

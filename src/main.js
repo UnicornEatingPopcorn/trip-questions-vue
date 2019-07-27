@@ -28,6 +28,14 @@ requireComponent.keys().forEach(fileName => {
   Vue.component(componentName, componentConfig.default || componentConfig)
 })
 
+// Document.getElementByClassName(".select").change(function() {
+//   if (this.children("option:first-child").is(":selected")) {
+//     this.addClass("placeholder")
+//   } else {
+//     this.removeClass("placeholder")
+//   }
+// })
+
 Vue.config.productionTip = false
 
 new Vue({

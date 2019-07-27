@@ -1,10 +1,9 @@
 <template lang="pug">
   form
     .row
-      .col-5
-        label(v-if="label") {{ label }}:
-      .col-7
-        input(type="text" @input="updateValue" v-bind="$attrs" class="form-control base-input" @blur="$v.value.$touch()" :class="{ 'is-invalid': $v.value.$error }")
+      .col-12
+        input(type="text" @input="fuzzySearch" v-model="query" v-bind="$attrs" class="form-control base-input" @blur="$v.value.$touch()" :class="{ 'is-invalid': $v.value.$error }" :placeholder="label")
+        p(v-for="airport in airports" :key="airport.icao" @click="setAirport(airport)") {{ airport.icao }}, {{ airport.city }}
           //- option(
           //-   v-for="airport in airports"
           //-   :value="airport.city"
@@ -42,22 +41,25 @@ export default {
   },
   data() {
     return {
+      query: '',
       airports: [],
       airportsFromSearch: []
     }
   },
-  created() {
-   ClientService.getAirports()
+  methods: {
+    fuzzySearch() {
+      ClientService.getAirportsFuzzy(this.query)
       .then(response => {
         this.airports = response.data
       })
       .catch(error => {
         console.log('There was an error:', error.response)
       })
-  },
-  methods: {
-    updateValue(event) {
-      this.$emit("input", event.target.value)
+    },
+    setAirport(airport) {
+      this.value = airport.id
+      this.query = airport.city
+      this.airports = []
     }
   }
 }

@@ -61,7 +61,7 @@ export default {
     },
     createPlan() {
       this.$store
-        .dispatch("createPlan", this.plan)
+        .dispatch("createPlan", this.planForAPI())
         .then(() => {
           this.$router.push({
             name: "plan-list"
@@ -71,6 +71,11 @@ export default {
         .catch(() => {
           console.log("There was a problem creating your plan.")
         })
+    }
+  },
+  computed: {
+    planForAPI() {
+      return { plan: { answers: this.plan.answers.map((answer) => { return { question_id: answer.question.id, value: answer.value } }) } }
     }
   }
 }

@@ -34,7 +34,7 @@ export default {
     return apiClient.patch("/plans/" + plan.id, plan)
   },
 
-  getAirports() {
-    return apiClient.get("/airports")
+  getAirportsFuzzy(query) {
+    return apiClient.get(`/airports/fuzzy_search?query=${query}`)
   }
 }

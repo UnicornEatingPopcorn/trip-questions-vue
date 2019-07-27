@@ -12,7 +12,7 @@ export default {
         { name: '3', value: 3},
         { name: '4', value: 4},
         { name: '5', value: 5},
-        { name: '6+', value: null},
+        { name: '6+', value: '6+'},
       ]
     }
   },

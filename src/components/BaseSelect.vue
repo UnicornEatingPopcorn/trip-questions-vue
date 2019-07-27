@@ -1,10 +1,9 @@
 <template lang="pug">
   form
     .row
-      .col-5
-        label(v-if="label") {{ label }}:
-      .col-7
+      .col-12
         select(@change="updateValue" v-bind="$attrs" class="form-control base-input" @blur="$v.value.$touch()" :class="{ 'is-invalid': $v.value.$error }")
+          option.selected {{ label }}
           option(
             v-for="option in options"
             :key="option.value"
