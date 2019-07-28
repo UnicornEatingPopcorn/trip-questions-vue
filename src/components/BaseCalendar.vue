@@ -2,7 +2,7 @@
   form
     .row
       .col-12
-        datepicker(:value="date" @selected="updateValue" :bootstrap-styling="true" input-class="base-input")
+        datepicker(:placeholder="label" @selected="updateValue" :bootstrap-styling="true" input-class="base-input")
 </template>
 
 <script>

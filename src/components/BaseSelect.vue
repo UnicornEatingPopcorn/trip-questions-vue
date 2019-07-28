@@ -3,7 +3,7 @@
     .row
       .col-12
         select(@change="updateValue" v-bind="$attrs" class="form-control base-input" @blur="$v.value.$touch()" :class="{ 'is-invalid': $v.value.$error }")
-          option.selected {{ label }}
+          option {{ label }}
           option(
             v-for="option in options"
             :key="option.value"
