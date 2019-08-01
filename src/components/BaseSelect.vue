@@ -40,7 +40,7 @@ export default {
   },
   methods: {
     updateValue(event) {
-      this.$emit("input", event.target.value)
+      this.value = event.target.value
     }
   }
 }
