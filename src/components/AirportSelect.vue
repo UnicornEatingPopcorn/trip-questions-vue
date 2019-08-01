@@ -2,15 +2,12 @@
   form
     .row
       .col-12
-        input(type="text" @input="fuzzySearch" v-model="query" v-bind="$attrs" class="form-control base-input" @blur="$v.value.$touch()" :class="{ 'is-invalid': $v.value.$error }" :placeholder="label")
-        p(v-for="airport in airports" :key="airport.icao" @click="setAirport(airport)") {{ airport.icao }}, {{ airport.city }}
-          //- option(
-          //-   v-for="airport in airports"
-          //-   :value="airport.city"
-          //-   :key="airport.icao"
-          //-   :selected="airport.city === value") {{ airport.icao }}, {{ airport.city }}
-        template(v-if="$v.value.$error")
-          p.error-message(v-if="!$v.value.required") Field is required to be filled.
+        .dropdown
+          input(type="text" @input="fuzzySearch" v-model="query" v-bind="$attrs" class="form-control base-input" @blur="$v.value.$touch()" :class="{ 'is-invalid': $v.value.$error }" :placeholder="label")
+          .dropdown-items
+            .dropdown-item(v-for="airport in airports" :key="airport.icao" @click="setAirport(airport)") {{ airport.icao }}, {{ airport.city }}
+          template(v-if="$v.value.$error")
+            p.error-message(v-if="!$v.value.required") Field is required to be filled.
 </template>
 
 <script>
@@ -68,4 +65,18 @@ export default {
 <style lang="sass">
 .select-input
   width: 220px
+
+.dropdown
+  position: relative
+
+.dropdown-items
+  position: absolute
+  top: 38px
+  left: 0px
+  z-index: 99
+  background: white
+  width: 100%
+
+.dropdown-item
+  cursor: pointer
 </style>
