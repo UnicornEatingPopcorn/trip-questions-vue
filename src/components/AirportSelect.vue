@@ -2,10 +2,12 @@
   form
     .row
       .col-12
-        .dropdown
+        .airports-dropdown
           input(type="text" @input="fuzzySearch" v-model="query" v-bind="$attrs" class="form-control base-input" @blur="$v.value.$touch()" :class="{ 'is-invalid': $v.value.$error }" :placeholder="label")
           .dropdown-items
-            .dropdown-item(v-for="airport in airports" :key="airport.icao" @click="setAirport(airport)") {{ airport.icao }}, {{ airport.city }}
+            .dropdown-item(v-for="airport in airports" :key="airport.icao" @click="setAirport(airport)") {{ airport.icao }}
+              span.badge.badge-primary {{ airport.city }}
+              .sm-line
           template(v-if="$v.value.$error")
             p.error-message(v-if="!$v.value.required") Field is required to be filled.
 </template>
@@ -66,7 +68,7 @@ export default {
 .select-input
   width: 220px
 
-.dropdown
+.airports-dropdown
   position: relative
 
 .dropdown-items
@@ -79,4 +81,13 @@ export default {
 
 .dropdown-item
   cursor: pointer
+
+.badge-primary
+  margin-left: 10px
+
+.sm-line
+  height: 1px
+  background: #b8daff8c
+  width: 100%
+  margin-top: 5px
 </style>
