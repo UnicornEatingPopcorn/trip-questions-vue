@@ -5,8 +5,8 @@
         .airports-dropdown
           input(type="text" @input="fuzzySearch" v-model="query" v-bind="$attrs" class="form-control base-input" @blur="$v.value.$touch()" :class="{ 'is-invalid': $v.value.$error }" :placeholder="label")
           .dropdown-items
-            .dropdown-item(v-for="airport in airports" :key="airport.icao" @click="setAirport(airport)") {{ airport.icao }}
-              span.badge.badge-primary {{ airport.city }}
+            .dropdown-item(v-for="airport in airports" :key="airport.icao" @click="setAirport(airport)") {{ airport.name }}
+              span.badge.badge-primary {{ airport.city }} {{ airport.country }}
               .sm-line
           template(v-if="$v.value.$error")
             p.error-message(v-if="!$v.value.required") Field is required to be filled.
