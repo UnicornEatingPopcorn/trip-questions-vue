@@ -1,8 +1,8 @@
 <template>
   <div id="app">
-    <NavBar/>
+    <NavBar />
     <router-view :key="$route.fullPath" />
-    <Footer/>
+    <Footer />
   </div>
 </template>
 
@@ -19,25 +19,17 @@ export default {
 </script>
 
 <style lang="sass">
-@import url('https://fonts.googleapis.com/css?family=Montserrat&display=swap')
+@import "~bulma/bulma.sass"
 
 #app
   width: 100%
   height: 80%
   background-color: #000000e3
-  background-image: url('assets/2.png')
-  background-position: center
-
-.purple-content
-  background-color: #8d95fdc4
-  height: calc(100vh - 60px)
 
 .question-plan
-  background-color: #BAE5FE
+  background-color: #495057
   border-radius: 1%
-  padding: 20px
-  border: solid 2px #C0C5FE
-  margin-top: 40px
+  padding: 30px 40px
 
 .select-input
   width: 220px
@@ -46,8 +38,14 @@ h1
   color: #BAE5FE
 
 .base-input
-   background-color: white !important
-   color: black !important
+   background-color: #495057 !important
+   color: #dbdbdb !important
+   border-inline-start: 0px !important
+   border-block-end: 1px solid black !important
+   border-block-start: 0px !important
+   border-inline-end: 0px !important
+   width: 100%
+   font-size: 15px
 
 .error-message
   color: red
@@ -57,7 +55,4 @@ h1
 
 .top-margin
   margin-top: 40px
-
-body
-  font-family: 'Montserrat', sans-serif
 </style>

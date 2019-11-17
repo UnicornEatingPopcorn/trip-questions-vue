@@ -1,32 +1,25 @@
 <template lang="pug">
-  footer.nav.fixed-bottom
-    .container
-      .row.col-4.offset-md-4
-        a.footer-brand(href="https://github.com/AdventurousHunter") Adventurous Hunter
-          img.footer-brand(src="@/assets/GitHub-Mark-32px.png")
-
+footer.footer
+  .content.has-text-centered
+    a.footer__creator-name(href="https://github.com/UnicornEatingPopcorn") Unicorn Eating Popcorn &nbsp;
+      img.footer__image(src="@/assets/GitHub-Mark-32px.png")
 </template>
 
-<script>
-export default {
-}
-</script>
+<script></script>
 
 <style lang="sass">
-.nav
-  display: flex
-  justify-content: space-between
-  align-items: center
-  height: 60px
-  background-color: #82CFFD
+.footer
+  &__creator-name
+    color: #000000e3
+    display: flex
+    justify-content: center
+    align-items: center
 
-.footer-brand
-  font-family: 'Montserrat', sans-serif
-  font-size: 1.3em
-  color: #000000e3
-  margin-left: 10px
+  &__creator-name:hover
+    transform: scale(1.1)
+    color: black
 
-img
-  margin-bottom: 2px
-  height: 20px
+  &__img
+    margin-bottom: 2px
+    height: 20px
 </style>

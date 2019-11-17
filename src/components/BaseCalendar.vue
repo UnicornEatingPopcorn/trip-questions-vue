@@ -1,8 +1,6 @@
 <template lang="pug">
-  form
-    .row
-      .col-12
-        datepicker(:placeholder="label" @selected="updateValue" :bootstrap-styling="true" input-class="base-input")
+.column.is-paddingless
+  datepicker(:placeholder="label" @selected="updateValue" :bootstrap-styling="true" input-class="base-input")
 </template>
 
 <script>
@@ -12,7 +10,7 @@ export default {
   components: {
     Datepicker
   },
-  data () {
+  data() {
     return {
       date: new Date()
     }
@@ -20,7 +18,7 @@ export default {
   props: {
     label: {
       type: String,
-      default: ''
+      default: ""
     }
   },
   methods: {
@@ -31,6 +29,4 @@ export default {
 }
 </script>
 
-<style lang="sass">
-
-</style>
+<style lang="sass"></style>

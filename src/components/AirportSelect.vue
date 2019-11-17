@@ -1,15 +1,13 @@
 <template lang="pug">
-  form
-    .row
-      .col-12
-        .airports-dropdown
-          input(type="text" @input="fuzzySearch" v-model="query" v-bind="$attrs" class="form-control base-input" @blur="$v.value.$touch()" :class="{ 'is-invalid': $v.value.$error }" :placeholder="label")
-          .dropdown-items
-            .dropdown-item(v-for="airport in airports" :key="airport.icao" @click="setAirport(airport)") {{ airport.name }}
-              span.badge.badge-primary {{ airport.city }} {{ airport.country }}
-              .sm-line
-          template(v-if="$v.value.$error")
-            p.error-message(v-if="!$v.value.required") Field is required to be filled.
+.column.is-paddingless.airport-select-component
+  .airports-dropdown
+    input.base-input(type="text" @input="fuzzySearch" v-model="query" v-bind="$attrs" @blur="$v.value.$touch()" :class="{ 'is-invalid': $v.value.$error }" :placeholder="label")
+    .dropdown-items
+      .dropdown-item(v-for="airport in airports" :key="airport.icao" @click="setAirport(airport)") {{ airport.name }}
+        span.badge.badge-primary {{ airport.city }} {{ airport.country }}
+        .sm-line
+    template(v-if="$v.value.$error")
+      p.error-message(v-if="!$v.value.required") Field is required to be filled.
 </template>
 
 <script>
@@ -40,7 +38,7 @@ export default {
   },
   data() {
     return {
-      query: '',
+      query: "",
       airports: [],
       airportsFromSearch: []
     }
@@ -48,12 +46,12 @@ export default {
   methods: {
     fuzzySearch() {
       ClientService.getAirportsFuzzy(this.query)
-      .then(response => {
-        this.airports = response.data
-      })
-      .catch(error => {
-        console.log('There was an error:', error.response)
-      })
+        .then(response => {
+          this.airports = response.data
+        })
+        .catch(error => {
+          console.log("There was an error:", error.response)
+        })
     },
     setAirport(airport) {
       this.value = airport.id
@@ -90,4 +88,7 @@ export default {
   background: #b8daff8c
   width: 100%
   margin-top: 5px
+
+.airport-select-component
+  margin-top: 10px
 </style>

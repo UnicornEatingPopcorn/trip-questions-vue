@@ -1,42 +1,83 @@
 <template lang="pug">
-  #nav.nav
-    .container
-      .row
-        .col-9
-          router-link.nav-brand(:to="{ path: '/' }") Questions
-        .col-3.nav-path
-          router-link(:to="{ name: 'plan-create' }") Create plan
-          span.pipe |
-          router-link(:to="{ name: 'plan-list' }") Plans
+.header
+  .columns.header__columns.is-marginless
+    .column.is-3.is-offset-1
+      p.header__title Portfolio version of creating travel plan
+    // Responsive toggle
+    //- .column.is-1
+    //-   a.navbar-burger.burger(@mouseover="navbarMenu = !navbarMenu" role="button" aria-expanded="false")
+    //-     span(aria-hidden="true")
+    //-     span(aria-hidden="true")
+    //-     span(aria-hidden="true")
+    // Menu
+    .column
+      .header__items
+        .header__item(v-for="navItem in navItems")
+          router-link.header__item-link(:to="navItem.path") {{ navItem.title }} 
 
+      //- .dropdown.is-right(:class="{'is-active': navbarMenu}")
+      //-   .dropdown-menu(id="dropdown-menu" role="menu")
+      //-     .dropdown-content
+      //-       .dropdown-item.is-nav-link(v-for="navItem in navItems")
+      //-         router-link.a-navbar.is-centered-responsive(to="navItem.path") {{ navItem.title }}
+  .header__border
 </template>
 
 <script>
 export default {
+  data() {
+    return {
+      navItems: [
+        {
+          title: "Create plan",
+          path: "plan-create"
+        },
+        {
+          title: "Edit plan",
+          path: "plan-edit"
+        },
+        {
+          title: "Plan list",
+          path: "plan-list"
+        },
+        {
+          title: "Questions",
+          path: "/"
+        }
+      ],
+      navbarMenu: false
+    }
+  }
 }
 </script>
 
 <style lang="sass">
-.nav
-  display: flex
-  justify-content: space-between
-  align-items: center
-  height: 60px
-  background-color: #82CFFD
+.header
+  height: 50px
 
-.nav-brand
-  font-family: 'Montserrat', sans-serif
-  font-weight: 700
-  font-size: 1.5em
-  color: #000000e3
-  text-decoration: none
+  &__title
+    color: #f7b944
+    font-size: 18px
+    margin-bottom: 0px
 
-.pipe
-  margin-left: 10px
-  margin-right: 10px
+  &__items
+    display: flex
+    justify-content: space-evenly
 
-.nav-path
-  color: #000000e3
-  margin: auto
-  text-align: right
+  &__item:hover
+    transform: scale(1.1)
+
+  &__item-link
+    color: white
+    font-size: 16px
+
+  &__item-link:hover
+    color: #f7b944
+
+  &__border
+    border-bottom: 1px solid black
+
+  &__columns
+    display: flex
+    align-items: center
 </style>

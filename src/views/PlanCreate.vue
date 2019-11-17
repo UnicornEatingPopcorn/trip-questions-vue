@@ -1,24 +1,18 @@
 <template lang="pug">
-.container.purple-content
-  .row.justify-content-center
-    .col-11
-      h1.mb-3.text-center.top-margin Create Plan
-      form#mainQuestions.position-relative.question-plan(@submit.prevent="createPlan")
-       .row.form-group
-         .col-12.text-center
-           h5.font-alt.form-text
-             |  Let's start with few simple questions
-           //- img.fluid-grow(src="@/assets/smile.png" height="100px", width="100px")
-           .line
-       .row.mb-3
-         Answer(
-           v-for="answer in plan.answers"
-           :key="answer.question.id"
-           :answer="answer")
-
-       .row
-         .col-6.offset-md-6
-           button.btn.btn-primary.btn-block Submit
+.plan-create-container
+  .columns
+    .column.is-6.is-offset-3
+      form#mainQuestions.question-plan(@submit.prevent="createPlan")
+        p.plan-create-container__title Let's start with few simple questions
+        .plan-create-container__line
+        .columns.is-multiline
+           Answer(
+             v-for="answer in plan.answers"
+             :key="answer.question.id"
+             :answer="answer")
+        .columns
+          .column.plan-create-container__button
+            button.button.is-black Submit
 </template>
 
 <script>
@@ -75,34 +69,42 @@ export default {
   },
   computed: {
     planForAPI() {
-      return { plan: { answers: this.plan.answers.map((answer) => { return { question_id: answer.question.id, value: answer.value } }) } }
+      return {
+        plan: {
+          answers: this.plan.answers.map(answer => {
+            return { question_id: answer.question.id, value: answer.value }
+          })
+        }
+      }
     }
   }
 }
 </script>
 
 <style lang="sass">
-h1
-  color: #BAE5FE
+.plan-create-container
+  display: flex
+  justify-content: center
+  align-items: center
+  height: calc(100vh - 120px)
 
-.btn:hover
+  &__title
+    font-size: 18px
+    color: white
+    display: flex
+    justify-content: center
+
+  &__line
+    width: 100%
+    height: 1px
+    background: #f7b944
+    display: inline-block
+
+  &__button
+    display: flex !important
+    justify-content: center
+
+.button:hover
   transform: scale(1.03)
   box-shadow: 0 3px 12px 0 rgba(0, 0, 0, 0.2), 0 1px 15px 0 rgba(0, 0, 0, 0.19)
-
-.field
-  margin-bottom: 24px
-
-.btn-plan
-  background-color: #2aabf7 !important
-  margin-top: 20px
-  width: 220px
-
-.form-text
-  color: #000000e3
-
-.line
-  width: 400px
-  height: 3px
-  background: #0F1886
-  margin: 0 auto
 </style>

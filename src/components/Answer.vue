@@ -1,5 +1,5 @@
 <template lang="pug">
-.col-6.top
+.column.is-6
   component(
     :is="question.component"
     :label="question.title"

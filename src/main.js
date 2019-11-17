@@ -1,16 +1,13 @@
 import Vue from "vue"
 import App from "./App.vue"
-import BootstrapVue from "bootstrap-vue"
 import router from "./router"
 import store from "./store/store"
 import upperFirst from "lodash/upperFirst"
 import camelCase from "lodash/camelCase"
-import "@/assets/bootstrap-variables.sass"
 import "nprogress/nprogress.css"
 import Vuelidate from "vuelidate"
 
 Vue.use(Vuelidate)
-Vue.use(BootstrapVue)
 
 const requireComponent = require.context(
   "./components",
@@ -35,6 +32,7 @@ requireComponent.keys().forEach(fileName => {
 //     this.removeClass("placeholder")
 //   }
 // })
+require("./assets/main.sass")
 
 Vue.config.productionTip = false
 

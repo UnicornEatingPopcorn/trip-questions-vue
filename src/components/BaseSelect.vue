@@ -1,16 +1,14 @@
 <template lang="pug">
-  form
-    .row
-      .col-12
-        select(@change="updateValue" v-bind="$attrs" class="form-control base-input" @blur="$v.value.$touch()" :class="{ 'is-invalid': $v.value.$error }")
-          option {{ label }}
-          option(
-            v-for="option in options"
-            :key="option.value"
-            :value="option.value"
-            :selected="option.value === null") {{ option.name }}
-        template(v-if="$v.value.$error")
-          p.error-message(v-if="!$v.value.required") Field is required to be filled.
+.column.is-paddingless
+  select.base-input(@change="updateValue" v-bind="$attrs" @blur="$v.value.$touch()" :class="{ 'is-invalid': $v.value.$error }")
+    option {{ label }}
+    option(
+      v-for="option in options"
+      :key="option.value"
+      :value="option.value"
+      :selected="option.value === null") {{ option.name }}
+  template(v-if="$v.value.$error")
+    p.error-message(v-if="!$v.value.required") Field is required to be filled.
 </template>
 
 <script>
