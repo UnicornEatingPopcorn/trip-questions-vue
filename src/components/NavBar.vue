@@ -30,7 +30,7 @@ export default {
       navItems: [
         {
           title: "Create plan",
-          path: "plan-create"
+          path: "/"
         },
         {
           title: "Edit plan",
@@ -39,10 +39,6 @@ export default {
         {
           title: "Plan list",
           path: "plan-list"
-        },
-        {
-          title: "Questions",
-          path: "/"
         }
       ],
       navbarMenu: false
@@ -70,6 +66,8 @@ export default {
   &__item-link
     color: white
     font-size: 16px
+    &.router-link-exact-active
+      color: #f7b944
 
   &__item-link:hover
     color: #f7b944
